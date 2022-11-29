@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": {"ENV": "POSTGRS_DB"},
+    "user": {"ENV": "POSTGRS_USER"},
+    "password": {"ENV": "POSTGRS_PASSWORD"}
+  },
+  "test": {
+    "driver": "pg",
+    "host": "127.0.0.1",
+    "database": {"ENV": "POSTGRS_DB_TEST"},
+    "user": {"ENV": "POSTGRS_USER"},
+    "password": {"ENV": "POSTGRS_PASSWORD"}
+  }
+}
