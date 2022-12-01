@@ -5,17 +5,13 @@ import { Pool } from 'pg';
 // from a .env file into process.env
 
 // The dotenv.config() line initializes the environment variables.
-// You can't access the env vars unless this line exists in your code,
+// You can't access the env vars unless line 11 exists in your code,
 // it typically goes as close to the beginning of the program as possible
 
 dotenv.config();
 
-const {
-    POSTGRES_HOST,
-    POSTGRES_DB,
-    POSTGRES_USER,
-    POSTGRES_PASSWORD
-} = process.env;
+const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
+    process.env;
 
 // The process.env property returns an object containing the user environment
 
