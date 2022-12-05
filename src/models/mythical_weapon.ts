@@ -1,11 +1,11 @@
 import Client from '../database';
 
-export type Weapon = {
-    id: Number;
-    name: string;
-    type: string;
-    weight: number;
-};
+export interface Weapon {
+    id: Number
+    name: string
+    type: string
+    weight: number
+}
 
 export class MythicalWeaponStore {
     async index(): Promise<Weapon[]> {
@@ -42,7 +42,7 @@ export class MythicalWeaponStore {
             conn.release();
             return weapon;
         } catch (err) {
-            throw new Error(`Could not add new weapon ${name}. Error: ${err}`);
+            throw new Error(`Could not add new weapon ${w.name}. Error: ${err}`);
         }
     }
 

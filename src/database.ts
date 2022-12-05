@@ -10,7 +10,7 @@ import { Pool } from 'pg';
 
 dotenv.config();
 
-const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
+const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_TEST_DB, ENV } =
     process.env;
 
 // The process.env property returns an object containing the user environment
@@ -18,13 +18,26 @@ const { POSTGRES_HOST, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD } =
 // If a gitignore file exists in your project add the .env file there.
 // If there isn't a gitignore, add a file called .gitignore to the root of
 // the project and add a single line in the file that says just .env
+let client: Pool = new Pool();
+console.log(ENV);
 
-const client = new Pool({
-    host: POSTGRES_HOST,
-    database: POSTGRES_DB,
-    user: POSTGRES_USER,
-    password: POSTGRES_PASSWORD
-});
+if (ENV === 'test') {
+    client = new Pool({
+        host: POSTGRES_HOST,
+        database: POSTGRES_TEST_DB,
+        user: POSTGRES_USER,
+        password: POSTGRES_PASSWORD
+    });
+}
+
+if (ENV === 'dev') {
+    client = new Pool({
+        host: POSTGRES_HOST,
+        database: POSTGRES_DB,
+        user: POSTGRES_USER,
+        password: POSTGRES_PASSWORD
+    });
+}
 
 // pool is a connection to the database
 
