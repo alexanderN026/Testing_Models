@@ -36,9 +36,10 @@ app.get('/articles/:id', (_req: Request, res: Response) => {
 });
 
 app.post('/articles', (req: Request, res: Response) => {
-    const article: Article = {
-        title: req.body.title,
-        content: req.body.content
+    const weapon: Weapon = {
+        name: req.body.name,
+        type: req.body.type,
+        weight: req.body.weight
     };
     try {
         res.send('this is the CREATE route');
@@ -49,10 +50,11 @@ app.post('/articles', (req: Request, res: Response) => {
 });
 
 app.put('/articles/:id', (req: Request, res: Response) => {
-    const article: Article = {
+    const weapon: Weapon = {
         id: req.params.id,
-        title: req.body.title,
-        content: req.body.content
+        name: req.body.name,
+        type: req.body.type,
+        weight: req.body.weight
     };
     try {
         res.send('this is the EDIT route');
