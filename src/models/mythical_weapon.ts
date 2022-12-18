@@ -1,10 +1,10 @@
 import Client from '../database';
 
 export interface Weapon {
-    id: Number
-    name: string
-    type: string
-    weight: number
+    id: Number;
+    name: string;
+    type: string;
+    weight: number;
 }
 
 export class MythicalWeaponStore {
@@ -42,7 +42,9 @@ export class MythicalWeaponStore {
             conn.release();
             return weapon;
         } catch (err) {
-            throw new Error(`Could not add new weapon ${w.name}. Error: ${err}`);
+            throw new Error(
+                `Could not add new weapon ${w.name}. Error: ${err}`
+            );
         }
     }
 

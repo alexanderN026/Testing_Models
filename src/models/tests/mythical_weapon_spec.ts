@@ -36,12 +36,14 @@ describe('Mythical Weapon Model', () => {
 
     it('index method should return a list of weapons', async () => {
         const result = await store.index();
-        expect(result).toEqual([{
-            id: 1,
-            name: 'excalibur',
-            type: 'sword',
-            weight: 10
-        }]);
+        expect(result).toEqual([
+            {
+                id: 1,
+                name: 'excalibur',
+                type: 'sword',
+                weight: 10
+            }
+        ]);
     });
 
     it('show method should return the correct weapon', async () => {
